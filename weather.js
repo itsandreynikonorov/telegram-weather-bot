@@ -1,12 +1,11 @@
 const axios = require('axios');
-const config = require('./config');
 
 module.exports.getWeather = async (city) => {
 	if (!city) {
 		throw new Error('Не указан город');
 	}
 
-	const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.openWeatherMapKey}&units=metric`;
+	const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_TOKEN}&units=metric`;
 
 	try {
 		const response = await axios.get(url);

@@ -1,9 +1,10 @@
+require('dotenv').config()
+const { BOT_TOKEN } = process.env;
 const { Telegraf } = require('telegraf');
 const { message } = require('telegraf/filters')
-const config = require('./config');
 const weatherService = require('./weather');
 
-const bot = new Telegraf(config.token);
+const bot = new Telegraf(BOT_TOKEN);
 
 bot.start((ctx) => ctx.reply(`
 Hello!
